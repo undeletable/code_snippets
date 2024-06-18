@@ -128,9 +128,9 @@ for (var i = 0; i < 5; i++) {
 
 // Solution 3
 for (let i = 0; i < 5; i++) {
-  setTimeout(function () {
+  setTimeout(function (a) {
     console.log(a);
-  }, 0);
+  }, 0, i);
 }
 
 // ----------------
@@ -141,7 +141,7 @@ function foo() {
   if (true) {
     if (true) {
       if (true) {
-        var a = 3;
+        var a = 1;
       }
     }
   }
@@ -153,5 +153,5 @@ foo();
 
 console.log(a); // Reference error
 
-// Explanation: in 1 console we got 3 because var is visible in its function
+// Explanation: in 1 console we got 1 because var is visible in its function
 // and reference error in second console because var is not visible outside of its function
