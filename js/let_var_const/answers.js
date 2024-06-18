@@ -2,7 +2,7 @@
 console.log(a); // undefined
 var a = 1;
 
-// Explanation: we got undefined because var hosts
+// Explanation: we got undefined because var hoists
 // ----------------
 // ----------------
 
@@ -28,7 +28,7 @@ foo();
 
 console.log(c); // 5
 
-// Explanation: in first console undefined because var is functional scope, and it's hosted
+// Explanation: in first console undefined because var is functional scope, and it's hoisted
 // and creating new variable that ignore c in global scope
 // ----------------
 // ----------------
