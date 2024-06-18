@@ -130,7 +130,7 @@ console.log(inObj2.fn());
 //////
 
 inObj2.b = { g: independentFn, prop: 3 };
-console.log(o.b.g());
+console.log(inObj2.b.g());
 
 ///////////////////
 
@@ -179,7 +179,7 @@ function add(c, d) {
 
 const objToAdd = { a: 1, b: 3 };
 
-console.log(add.call(o, 9, 7));
+console.log(add.call(objToAdd, 9, 7));
 
 ///////////////////
 

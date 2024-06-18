@@ -43,18 +43,18 @@ function foo() {
 }
 
 var b = foo.bind({ a: "Kyiv" });
-console.log(b());
+console.log(b()); // Kyiv
 
 /////// next >
 
 var h = b.bind({ a: "Lviv" });
-console.log(h());
+console.log(h()); // Kyiv
 
 /////// next >
 
 var o = { a: 37, b, h };
 
-console.log(o.a, o.b(), o.h()); // 37,37, Kyiv, Kyiv
+console.log(o.a, o.b(), o.h()); // 37, Kyiv, Kyiv
 
 ///////////////////
 
@@ -84,7 +84,7 @@ console.log(obj.foo() === globalCtx); // true
 
 ////
 // (bind the same behavior)
-console.log(foo.call(obj) === obj); // true
+console.log(foo.call(obj) === obj); // false
 
 ////
 
@@ -134,7 +134,7 @@ console.log(inObj2.fn()); // 2
 //////
 
 inObj2.b = { g: independentFn, prop: 3 };
-console.log(o.b.g()); // 3
+console.log(inObj2.b.g()); // 3
 
 ///////////////////
 
@@ -167,11 +167,11 @@ console.log(o.a); // 1
 
 function C2() {
   this.a = 2;
-  return { a: 3 }; // 3
+  return { a: 3 };
 }
 
 const o2 = new C2();
-console.log(o2.a);
+console.log(o2.a); // 3
 
 ///////////////////
 
@@ -184,21 +184,21 @@ function add(c, d) {
 
 const objToAdd = { a: 1, b: 3 };
 
-console.log(add.call(o, 9, 7)); // 20
+console.log(add.call(objToAdd, 9, 7)); // 20
 
 ///////////////////
 
 // Additional Examples
 
 function makeUser() {
-    return {
-      fullName: "John Doe",
-      ref: this,
-    };
-  }
-  
-  let user = makeUser();
-  
-  console.log(user.ref.fullName); // undefined
+  return {
+    name: "John",
+    ref: this,
+  };
+}
+
+let user = makeUser();
+
+console.log(user.ref.name); // undefined
   
 ////////////////
